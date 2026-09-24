@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #e9e8e3;
+            color: #171344;
+        }
+
+        .main {
+            width: 90%;
+            max-width: 1250px;
+            height: 700px;
+            margin: 80px auto;
+            padding: 25px 50px;
+            background: linear-gradient(120deg, #d9f4f1, #f4f0e5, #e8edf0);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .nav-middle {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 35px;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            height: 500px;
+            display: flex;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .intro {
+            width: 35%;
+        }
+
+        .intro h1 {
+            font-size: 64px;
+            line-height: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .intro p {
+            color: #20203b;
+            font-size: 13px;
+            line-height: 1.6;
+            max-width: 350px;
+            margin-bottom: 20px;
+        }
+
+        .explore {
+            border: none;
+            background: linear-gradient(90deg, #ff2454, #ff6747);
+            color: white;
+            padding: 13px 55px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(255, 50, 80, .25);
+        }
+
+         /* cards  */
+        .cards {
+            display: flex;
+            gap: 13px;
+            width: 65%;
+        }
+
+        .card {
+            width: 33.33%;
+            height: 380px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                transparent 45%,
+                rgba(0,0,0,.75)
+            );
+        }
+
+        .card-info {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 20px;
+        }
+
+        .card-info h2 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .card-info p {
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-info p::first-letter {
+            color: red;
+        }
+
+        .cap {
+            background-image: url("https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=600&q=80");
+        }
+
+        .santorini {
+            background-image: url("https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80");
+        }
+
+        .bali {
+            background-image: url("https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80");
+        }
+
+        
+
+        .bottom {
+            position: absolute;
+            bottom: 35px;
+            left: 50px;
+            right: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social {
+            display: flex;
+            gap: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .destination {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+        }
+
+        .number {
+            font-size: 11px;
+            letter-spacing: 5px;
+        }
+
+        .arrows {
+            display: flex;
+            gap: 10px;
+        }
+
+        .arrow {
+            width: 43px;
+            height: 43px;
+            border: 1px solid #aaa;
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+            color: #222;
+        }
+
+        
+
+        @media (max-width: 900px) {
+
+            .main {
+                height: auto;
+                margin: 20px auto;
+                padding: 25px;
+            }
+
+            .nav-middle {
+                display: none;
+            }
+
+            .content {
+                flex-direction: column;
+                height: auto;
+                padding: 60px 0;
+            }
+
+            .intro {
+                width: 100%;
+            }
+
+            .intro h1 {
+                font-size: 50px;
+            }
+
+            .cards {
+                width: 100%;
+            }
+
+            .card {
+                height: 330px;
+            }
+
+            .bottom {
+                position: static;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .nav-right {
+                gap: 10px;
+            }
+
+            .cards {
+                flex-direction: column;
+            }
+
+            .card {
+                width: 100%;
+            }
+
+            .bottom {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+
+        <nav>
+            <div class="logo">travel.</div>
+
+            <div class="nav-middle">
+                CARD SLIDER FOR WORDPRESS
+            </div>
+
+            <div class="nav-right">
+                <span>ABOUT</span>
+                <span>CONTACT</span>
+            </div>
+        </nav>
+
+
+        <div class="content">
+
+            <div class="intro">
+                <h1>
+                    Must see<br>
+                    Places
+                </h1>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Proin elementum metus eu enim rhoncus posuere.
+                </p>
+
+                <button class="explore">
+                    Explore
+                </button>
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card cap">
+                    <div class="card-info">
+                        <h2>Cappadocia</h2>
+                        <p>📍 Turkey</p>
+                    </div>
+                </div>
+
+                <div class="card santorini">
+                    <div class="card-info">
+                        <h2>Santorini</h2>
+                        <p>📍 Greece</p>
+                    </div>
+                </div>
+
+                <div class="card bali">
+                    <div class="card-info">
+                        <h2>Bali</h2>
+                        <p>📍 Indonesia</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="bottom">
+
+            <div class="social">
+                <span>f</span>
+                <span>▶</span>
+                <span>◎</span>
+            </div>
+
+            <div class="destination">
+                UNIQUE DESTINATIONS
+            </div>
+
+            <div class="number">
+                01 / 03
+            </div>
+
+            <div class="arrows">
+                <button class="arrow" onclick="previous()">‹</button>
+                <button class="arrow" onclick="next()">›</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Just a small slider for the cards
+
+        const cards = document.querySelector(".cards");
+
+        function next() {
+            cards.scrollLeft += 250;
+        }
+
+        function previous() {
+            cards.scrollLeft -= 250;
+        }
+
+    </script>
+
+</body>
+</html>
